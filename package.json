@@ -1,6 +1,6 @@
 {
-  "name": "@octodemov2/actions-deploy-demo",
-  "version": "1.0.32",
+  "name": "@ncalteen-migrations/gai-node-example",
+  "version": "1.0.0",
   "description": "Functions for working with the Fibonacci sequence",
   "main": "index.js",
   "scripts": {
@@ -8,22 +8,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/octodemov2/actions-deploy-demo.git"
+    "url": "git://github.com/ncalteen-migrations/gai-node-example.git"
   },
   "author": "Bryan Cross <bryancross@github.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/octodemov2/actions-deploy-demo/issues"
+    "url": "https://github.com/ncalteen-migrations/gai-node-example/issues"
   },
-  "homepage": "https://github.com/octodemov2/actions-deploy-demo#readme",
-  "devDependencies": {
-    "jest": "^24.8.0"
-  },
+  "homepage": "https://github.com/ncalteen-migrations/gai-node-example#README.md",
   "publishConfig": {
     "access": "public",
     "publishConfig": {
-      "registry": "https://npm.pkg.github.com/",
-      "registry": "https://registry.npmjs.org"
+      "registry": "https://npm.pkg.github.com/"
     }
+  },
+  "dependencies": {
+    "jest": "^29.5.0"
   }
 }

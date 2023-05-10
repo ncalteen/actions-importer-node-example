@@ -1,0 +1,29 @@
+{
+  "name": "@octodemov2/actions-deploy-demo",
+  "version": "1.0.32",
+  "description": "Functions for working with the Fibonacci sequence",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --ci --color --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/octodemov2/actions-deploy-demo.git"
+  },
+  "author": "Bryan Cross <bryancross@github.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/octodemov2/actions-deploy-demo/issues"
+  },
+  "homepage": "https://github.com/octodemov2/actions-deploy-demo#readme",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "publishConfig": {
+      "registry": "https://npm.pkg.github.com/",
+      "registry": "https://registry.npmjs.org"
+    }
+  }
+}

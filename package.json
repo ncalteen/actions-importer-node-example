@@ -4,7 +4,9 @@
   "description": "Functions for working with the Fibonacci sequence",
   "main": "index.js",
   "scripts": {
-    "test": "jest --ci --color --verbose"
+    "coverage": "jest --ci --color --verbose --coverage",
+    "test": "jest --ci --color --verbose --reporters=default --reporters=jest-junit",
+    "all": "npm run coverage && npm run test"
   },
   "repository": {
     "type": "git",
@@ -17,12 +19,26 @@
   },
   "homepage": "https://github.com/ncalteen-migrations/gai-node-example#README.md",
   "publishConfig": {
-    "access": "public",
-    "publishConfig": {
-      "registry": "https://npm.pkg.github.com/"
-    }
+    "registry": "https://npm.pkg.github.com/"
   },
-  "dependencies": {
-    "jest": "^29.5.0"
+  "jest": {
+    "coverageReporters": [
+      "text",
+      "cobertura"
+    ],
+    "coverageDirectory": "<rootDir>/reports",
+    "reporters": [
+      "default",
+      "jest-junit"
+    ]
+  },
+  "jest-junit": {
+    "outputDirectory": "<rootDir>/reports",
+    "outputName": "junit.xml"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "jest-junit": "^16.0.0"
   }
 }

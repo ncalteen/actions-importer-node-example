@@ -5,7 +5,7 @@
 ```javascript
 const {getNumber} = require('@bbq-beets/fib-tools')
 assert.strictEqual(getNumber(8), 21)
-```asdfasdfadsf
+```
 
 ## Get a List of Numbers
 

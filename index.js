@@ -1,7 +1,7 @@
 module.exports = {
   getList,
   getNumber,
-  getSequence
+  getSequence,
 }
 
 /**

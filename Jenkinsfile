@@ -42,7 +42,7 @@ pipeline {
     stage('Publish') {
       steps {
         echo 'Publishing to @${OWNER}/${REPO}'
-        sh 'npm publish'
+        sh 'npm publish --registry https://npm.pkg.github.com/'
       }
     }
   }

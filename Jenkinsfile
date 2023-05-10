@@ -31,10 +31,10 @@ pipeline {
       steps {
         sh 'npm test'
       }
-    }
-    post {
-      always {
-        junit 'reports/**/*.xml'
+      post {
+        always {
+          junit 'reports/**/*.xml'
+        }
       }
     }
 

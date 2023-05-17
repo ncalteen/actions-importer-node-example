@@ -1,0 +1,6 @@
+{
+  "default": {
+    "parallel": 2,
+    "format": ["json:cucumber-report.json", "html:cucumber-report.html"]
+  }
+}

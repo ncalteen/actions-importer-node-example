@@ -36,7 +36,9 @@
     "outputDirectory": "<rootDir>/reports",
     "outputName": "junit.xml"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@cucumber/cucumber": "^9.1.2"
+  },
   "devDependencies": {
     "jest": "^29.5.0",
     "jest-junit": "^16.0.0"

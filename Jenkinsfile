@@ -39,6 +39,13 @@ pipeline {
       }
     }
 
+    stage('Report') {
+      cucumber reportTitle: 'Cucumber Report',
+               sourceDirectory: 'reports',
+               fileIncludePattern: '**/*.json',
+               trendsLimit: 10
+    }
+
     stage('Publish') {
       steps {
         echo 'Publishing to @${OWNER}/${REPO}'

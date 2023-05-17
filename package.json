@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "coverage": "jest --ci --color --verbose --coverage",
-    "test": "jest --ci --color --verbose --reporters=default --reporters=jest-junit",
+    "test": "jest --ci --color --verbose --json --outputFile=reports/jest.json --reporters=default --reporters=jest-junit",
     "all": "npm run coverage && npm run test"
   },
   "repository": {

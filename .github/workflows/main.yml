@@ -22,38 +22,9 @@ jobs:
       - name: sh
         shell: sh
         run: node --version
-  Build:
-    runs-on: ubuntu-latest
-    container:
-      image: node:18.16.0-alpine
-    #       # This item has no matching transformer
-    #       docker:
-    #         key: args
-    #         value:
-    #           isLiteral: true
-    #           value: "-u root:root"
-    needs: Check_Node
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3.5.0
-      #     # 'retry' was not transformed because there is no suitable equivalent in GitHub Actions
       - name: sh
         shell: sh
         run: npm ci
-  Test:
-    runs-on: ubuntu-latest
-    container:
-      image: node:18.16.0-alpine
-    #       # This item has no matching transformer
-    #       docker:
-    #         key: args
-    #         value:
-    #           isLiteral: true
-    #           value: "-u root:root"
-    needs: Build
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3.5.0
       - name: sh
         shell: sh
         run: npm test
@@ -62,21 +33,6 @@ jobs:
         if: always()
         with:
           junit_files: reports/**/*.xml
-  Generate_Cucumber_Reports:
-    name: Generate Cucumber Reports
-    runs-on: ubuntu-latest
-    container:
-      image: node:18.16.0-alpine
-    #       # This item has no matching transformer
-    #       docker:
-    #         key: args
-    #         value:
-    #           isLiteral: true
-    #           value: "-u root:root"
-    needs: Test
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3.5.0
       - name: sh
         shell: sh
         run: npx cucumber-js --config ./cucumber.json
@@ -85,20 +41,6 @@ jobs:
         with:
           access-token: '${{ secrets.GITHUB_TOKEN }}'
           path: '**/cucumber-report.json'
-  Publish:
-    runs-on: ubuntu-latest
-    container:
-      image: node:18.16.0-alpine
-    #       # This item has no matching transformer
-    #       docker:
-    #         key: args
-    #         value:
-    #           isLiteral: true
-    #           value: "-u root:root"
-    needs: Generate_Cucumber_Reports
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3.5.0
       - name: echo message
         run: echo Publishing to @${{ env.OWNER }}/${{ env.REPO }}
       - name: sh

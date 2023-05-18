@@ -1,4 +1,6 @@
 pipeline {
+  agent any
+
   // Environment variables
   environment {
     OWNER = 'ncalteen-migrations'

@@ -10,6 +10,8 @@ env:
 permissions:
   checks: write
   pull-requests: write
+  contents: write
+  packages: write
 
 jobs:
   build:
@@ -18,7 +20,7 @@ jobs:
     container: node:18.16.0-alpine
 
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3

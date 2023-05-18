@@ -1,11 +1,4 @@
 pipeline {
-  agent {
-    docker {
-      image 'node:18.16.0-alpine'
-      args '-u root:root'
-    }
-  }
-
   // Environment variables
   environment {
     OWNER = 'ncalteen-migrations'

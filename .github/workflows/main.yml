@@ -4,6 +4,9 @@ on:
 env:
   OWNER: ncalteen-migrations
   REPO: gai-node-example
+permissions:
+  checks: write
+  pull-requests: write
 jobs:
   Check_Node:
     name: Check Node

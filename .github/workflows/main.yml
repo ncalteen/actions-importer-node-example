@@ -1,51 +1,61 @@
-name: Node.js_Pipeline_Example/main
+name: Node.js Pipeline Example
+
 on:
   workflow_dispatch:
+
 env:
   OWNER: ncalteen-migrations
   REPO: gai-node-example
+
 permissions:
   checks: write
   pull-requests: write
+
 jobs:
-  Check_Node:
-    name: Check Node
+  build:
+    name: Build Project
     runs-on: ubuntu-latest
-    container:
-      image: node:18.16.0-alpine
-    #       # This item has no matching transformer
-    #       docker:
-    #         key: args
-    #         value:
-    #           isLiteral: true
-    #           value: "-u root:root"
+    container: node:18.16.0-alpine
+
     steps:
       - name: checkout
-        uses: actions/checkout@v3.5.0
-      - name: sh
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: Node Version
         shell: sh
         run: node --version
-      - name: sh
+
+      - name: NPM CI
         shell: sh
         run: npm ci
-      - name: sh
+
+      - name: NPM Test
         shell: sh
         run: npm test
-      - name: Publish test results
+
+      - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2.7.0
         if: always()
         with:
           junit_files: reports/**/*.xml
-      - name: sh
+
+      - name: Generate Cucumber Reports
         shell: sh
         run: npx cucumber-js --config ./cucumber.json
-      - name: Cucumber
+
+      - name: Add Cucumber Report Annotations
         uses: deblockt/cucumber-report-annotations-action@v1.11
         with:
           access-token: '${{ secrets.GITHUB_TOKEN }}'
           path: '**/cucumber-report.json'
-      - name: echo message
-        run: echo Publishing to @${{ env.OWNER }}/${{ env.REPO }}
-      - name: sh
+
+      - name: NPM Publish
         shell: sh
-        run: npm publish --registry https://npm.pkg.github.com/
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

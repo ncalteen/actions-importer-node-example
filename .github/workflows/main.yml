@@ -13,14 +13,16 @@ env:
 permissions:
   checks: write
   pull-requests: write
-  contents: write
-  packages: write
 
 jobs:
   build:
     name: Build Project
     runs-on: ubuntu-latest
     container: node:18.16.0-alpine
+
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - name: Checkout
@@ -30,6 +32,7 @@ jobs:
         with:
           node-version: '18'
           registry-url: 'https://npm.pkg.github.com'
+          scope: '@ncalteen-migrations'
 
       - name: Node Version
         shell: sh

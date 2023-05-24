@@ -14,7 +14,6 @@ jobs:
   build:
     name: Build Project
     runs-on: ubuntu-latest
-    container: node:18.16.0-alpine
 
     permissions:
       contents: read

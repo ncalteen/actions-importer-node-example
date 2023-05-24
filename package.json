@@ -1,6 +1,6 @@
 {
   "name": "@ncalteen-migrations/gai-node-example",
-  "version": "3.0.0",
+  "version": "1.0.0",
   "description": "Functions for working with the Fibonacci sequence",
   "main": "index.js",
   "scripts": {
@@ -8,19 +8,8 @@
     "test": "jest --ci --color --verbose --json --outputFile=reports/jest.json --reporters=default --reporters=jest-junit",
     "all": "npm run coverage && npm run test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/ncalteen-migrations/gai-node-example.git"
-  },
-  "author": "Bryan Cross <bryancross@github.com>",
+  "author": "Nick Alteen <ncalteen@github.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ncalteen-migrations/gai-node-example/issues"
-  },
-  "homepage": "https://github.com/ncalteen-migrations/gai-node-example#README.md",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "jest": {
     "coverageReporters": [
       "text",

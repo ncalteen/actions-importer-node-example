@@ -29,18 +29,14 @@ jobs:
         with:
           node-version: '18'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@ncalteen-migrations'
 
       - name: Node Version
-        shell: sh
         run: node --version
 
       - name: NPM CI
-        shell: sh
         run: npm ci
 
       - name: NPM Test
-        shell: sh
         run: npm test
 
       - name: Publish Test Results
@@ -50,7 +46,6 @@ jobs:
           junit_files: reports/**/*.xml
 
       - name: Generate Cucumber Reports
-        shell: sh
         run: npx cucumber-js --config ./cucumber.json
 
       - name: Add Cucumber Report Annotations
@@ -60,7 +55,6 @@ jobs:
           path: '**/cucumber-report.json'
 
       - name: NPM Publish
-        shell: sh
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,4 +1,4 @@
-const {getNumber, getList, getSequence} = require('../index')
+const { getNumber, getList, getSequence } = require('../index')
 
 describe('getList', () => {
   test('returns [0] for the 0th number sequence', () => {

@@ -1,6 +1,6 @@
 const assert = require('assert')
-const {When, Then} = require('@cucumber/cucumber')
-const {getList, getNumber, getSequence} = require('../../index.js')
+const { When, Then } = require('@cucumber/cucumber')
+const { getList, getNumber, getSequence } = require('../../index.js')
 
 When('I provide a number input of {int}', function (input) {
   this.myNumber = getNumber(input)
@@ -32,5 +32,5 @@ Then(
     for (let i = expectedResponse; i < expected.length; i++) {
       assert.equal(this.myGenerator.next().value, getNumber(i))
     }
-  },
+  }
 )
